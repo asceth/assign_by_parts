@@ -4,7 +4,7 @@ describe AssignByParts do
 
   describe "given a hash" do
 
-    before(:all) do
+    before(:each) do
       class Bar
         attr_accessor :social_security_number, :foo
 
@@ -21,9 +21,10 @@ describe AssignByParts do
       @bar.social_security_number = "000000000"
       @bar.foo = "FMFAZ"
 
-      stub(@bar).changed_attributes { [] }
-      stub(@bar).foo_will_change! { true }
-      stub(@bar).social_security_number_will_change! { true }
+      # TODO
+      #stub(@bar).changed_attributes { [] }
+      #stub(@bar).foo_will_change! { true }
+      #stub(@bar).social_security_number_will_change! { true }
     end
 
     it "should call setup_assign_by_parts for each field" do
