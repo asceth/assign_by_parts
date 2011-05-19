@@ -14,14 +14,16 @@ describe AssignByParts do
                                                     :serial => [5, 8]},
                         :foo => {:fum => [0, 1],
                                  :faz => [2, 4]}
+
       end
 
       @bar = Bar.new
       @bar.social_security_number = "000000000"
       @bar.foo = "FMFAZ"
-      mock(@bar).foo_will_change! { true }
-      mock(@bar).social_security_number_will_change! { true }
-      mock(@bar).changed_attributes { [] }
+
+      stub(@bar).changed_attributes { [] }
+      stub(@bar).foo_will_change! { true }
+      stub(@bar).social_security_number_will_change! { true }
     end
 
     it "should call setup_assign_by_parts for each field" do
